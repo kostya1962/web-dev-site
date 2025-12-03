@@ -1,1 +1,0 @@
-<template>Second component</template>
