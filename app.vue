@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const hello = ref('My name is Kostya');
+
+const config = useRuntimeConfig();
+const hello = ref(config.token);
+const endAPI = ref(config.public.apiurl);
 </script>
 
 <template>
-  {{ hello }}
-  <TestComp />
+  {{ endAPI }}
   <div>
-    <SharedSecondComp />
-
+    {{ hello }} 
+    <SecondComp />
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
   </div>
