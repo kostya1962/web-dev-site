@@ -1,5 +1,5 @@
 <template>
     <div>
-       This is the blog index page.
+        ЗАКАЗЫ НА АККАУНТЕ
     </div>
 </template>

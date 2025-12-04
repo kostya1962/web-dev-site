@@ -1,5 +1,5 @@
 <template>
     <div>
-        This is your account page.
+        КАТАЛОГ ТОВАРОВ
     </div>
 </template>

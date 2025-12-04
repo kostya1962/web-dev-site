@@ -12,9 +12,9 @@
 
 <template>
     <div class="error-wrapper">
-        <h1><b>{{ error.statusCode }}</b> ОШИБКА</h1>
+        <h1><span class="error-bold">{{ error.statusCode }}</span> ОШИБКА</h1>
         <div  v-if="error.statusCode == 404" class="error-message">
-            Страница не найдена. Попробуйте перейти на главную страницу
+            Страница не найдена. Попробуйте перейти на главную страницу.
         </div>
         <div  v-else class="error-message">{{ error.statusMessage }}</div>
         <ActionButton color="ghost" @click="goHome">На главную</ActionButton>
@@ -37,5 +37,9 @@
     align-items: center;
     justify-content: center;
     gap: 24px;
+}
+
+.error-bold{
+    font-weight: 800;
 }
 </style>
