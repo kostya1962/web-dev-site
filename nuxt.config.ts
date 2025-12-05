@@ -18,10 +18,20 @@ export default defineNuxtConfig({
     }
   },
 
+  icon: {
+    customCollections: [
+      {
+        prefix: "icons",
+        dir: "./assets/icons"
+      }
+    ]
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/image',
-    '@nuxt/scripts'
+    '@nuxt/scripts',
+    '@nuxt/icon'
   ]
 })
