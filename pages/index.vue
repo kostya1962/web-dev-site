@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
     function openAbout(){
-        navigateTo("/blog");
+        navigateTo("/about");
     }
 </script>
 <template>
@@ -9,5 +9,6 @@
         Content of the index page
         <!-- <NuxtLink to="/about">Перейти в About</NuxtLink> -->
         <button @click="openAbout">Перейти (навигация)</button>
+        <InputFiled variant="black" placeholder="Введите ваш email"/>
     </div>
 </template>

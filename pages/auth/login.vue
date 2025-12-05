@@ -1,5 +1,11 @@
+<script setup lang="ts">
+definePageMeta({
+    layout: "auth",
+});
+</script>
+
 <template>
     <div>
-        AАУТЕНТИФИКАЦИЯ
+        АУТЕНТИФИКАЦИЯ
     </div>
 </template>
