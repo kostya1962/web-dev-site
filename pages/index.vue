@@ -1,8 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
+    
+
     function openAbout(){
         navigateTo("/about");
     }
+
+
 </script>
 <template>
     <div>
