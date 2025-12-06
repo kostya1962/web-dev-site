@@ -9,6 +9,7 @@ const data = defineModel<string>();
     <input v-model="data" class="input" :class="variant"/>
 </template>
 
+
 <style scoped>
 .input{
     padding: 12px 0;
