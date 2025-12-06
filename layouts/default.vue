@@ -5,7 +5,7 @@ import LayoutFooter from '~/components/Layout/LayoutFooter.vue';
 
 <template>
     <div>
-        <div>Шапка</div>
+        <LayoutHeader />
         <slot />
         <LayoutFooter />
     </div>

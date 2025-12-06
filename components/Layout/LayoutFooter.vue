@@ -53,6 +53,12 @@
     gap: 50px;
 }
 
+.footer hr {
+    border: none;
+    border-bottom: 1px solid var(--color-gray);
+    height: 1px;
+}
+
 .footer__top{
     display: flex;
     justify-content: space-between;
