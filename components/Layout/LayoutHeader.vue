@@ -1,3 +1,7 @@
+<script setup lang="ts">
+    console.log("SETUP");
+</script>
+
 <template>
     <div class="header">
         <NuxtLink to="/">
