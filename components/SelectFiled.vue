@@ -6,6 +6,7 @@ const { options } = defineProps<{
 </script>
 
 <template>
+    
     <div class="select-wrapper">
         <select v-model="model" class="select">
             <option v-for="item in options" :key="item.value" :value="item.value">
