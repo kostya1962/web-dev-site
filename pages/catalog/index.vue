@@ -19,25 +19,25 @@ const select = ref<string>("");
     <div>
         КАТАЛОГ ТОВАРОВ
         <SelectFiled 
-        v-model="select"
-        :options="[
-            {
-            value: '', 
-            label: 'Категории'
-            },
-            {
-            value: '1', 
-            label: 'Первый'
-            },
-            {
-            value: '2',
-            label: 'Второй'
-            },
-            {
-            value: '3',
-            label: 'Третий'
-            }
-        ]"
+            v-model="select"
+            :options="[
+                {
+                value: '', 
+                label: 'Категории'
+                },
+                {
+                value: '1', 
+                label: 'Первый'
+                },
+                {
+                value: '2',
+                label: 'Второй'
+                },
+                {
+                value: '3',
+                label: 'Третий'
+                }
+            ]"
         />
     </div>
 </template>
