@@ -3,23 +3,24 @@ import type { Product } from '~/interfaces/product.interface';
 
     const config = useRuntimeConfig();
     const product = defineProps<Product>();
+    const image = computed(() => `url(${config.public.imageurl}${product.images[0]})`);
 
 </script>
 
 <template>
-    <NuxtLink class="card" to="/">
-        <div 
-            class="card__image" 
-            :style="{ backgroundImage: `url(${config.public.imageurl}${product.images[0]})` }">
-            <span class="card__discount">
+    <NuxtLink class="card" :to="`/catalog/sup-${product.id}`">
+        <div class="card__image">
+            <span v-if="product.discount > 0" class="card__discount">
                 - {{ product.discount }}%
             </span>
         </div>
-        <div class="card__name">
-            {{ product.name }}
-        </div>
-        <div class="card__price">
-            {{ product.price * 77 }} ₽
+        <div class="card__info">
+            <div class="card__name">
+                {{ product.name }}
+            </div>
+            <div class="card__price">
+                {{ product.price * 77 }} ₽
+            </div>
         </div>
     </NuxtLink>
 </template>
@@ -44,6 +45,7 @@ import type { Product } from '~/interfaces/product.interface';
         background-repeat: no-repeat;
         background-color: lightgray;
         padding: 16px;
+        background-image: v-bind(image);
     }
 
     .card__discount{
@@ -68,5 +70,9 @@ import type { Product } from '~/interfaces/product.interface';
         color: var(--color-accent);
     }
     
-
+    .card__info{
+        display:flex;
+        gap:16px;
+        flex-direction: column;
+    }
 </style>
