@@ -27,7 +27,7 @@ const { data: productsData } = await useFetch<GetProductsResponse>(
     API_URL + '/products', 
     {
         query: {
-            linit: 20,
+            limit: 20,
             offset: 0,
         }
     }

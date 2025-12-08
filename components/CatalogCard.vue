@@ -3,8 +3,12 @@ import type { Product } from '~/interfaces/product.interface';
 
     const config = useRuntimeConfig();
     const product = defineProps<Product>();
-    const image = computed(() => `url(${config.public.imageurl}${product.images[0]})`);
+    const image = computed(() => `url(${config.public.imageurl}${product.images?.[0] ?? ''})`);
 
+    const formattedPrice = computed(() => {
+        const value = Number(product.price || 0) * 77;
+        return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(value);
+    });
 </script>
 
 <template>
@@ -19,7 +23,7 @@ import type { Product } from '~/interfaces/product.interface';
                 {{ product.name }}
             </div>
             <div class="card__price">
-                {{ product.price * 77 }} ₽
+                {{ formattedPrice }}
             </div>
         </div>
     </NuxtLink>
