@@ -51,6 +51,7 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+    padding: 0 16px;
 }
 
 .footer hr {

@@ -30,7 +30,6 @@ import type { Product } from '~/interfaces/product.interface';
         display: flex;
         flex-direction: column;
         gap: 24px;
-        max-width: 320px;
         width: 100%;
         text-decoration: none;
     }

@@ -20,7 +20,7 @@ import "~/assets/styles/main.css";
 <style scoped>
   .main-content{
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 16px;
     max-width: 1248px;
   }
 

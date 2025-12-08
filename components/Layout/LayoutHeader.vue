@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    console.log("SETUP");
+
 </script>
 
 <template>
@@ -40,6 +40,7 @@
     justify-content: space-between;
     margin-top: 48px;
     border-bottom: 1px solid var(--color-gray);
+    padding: 0 16px;
 }
 
 .header__right{
