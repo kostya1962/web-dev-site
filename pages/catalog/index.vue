@@ -7,6 +7,13 @@ const select = ref<string>("");
 const config = useRuntimeConfig();
 const API_URL = config.public.apiurl;
 
+const query = computed(() => (
+    {
+        limit: 20,
+        offset: 0,
+        category_id: select.value || undefined,
+    }
+));
 
 const {data} = await useFetch<GetCategoryResponse>(API_URL + '/categories'); 
 
@@ -26,10 +33,7 @@ const categories = computed(() => {
 const { data: productsData } = await useFetch<GetProductsResponse>(
     API_URL + '/products', 
     {
-        query: {
-            limit: 20,
-            offset: 0,
-        }
+        query,
     }
 ); 
 
@@ -71,7 +75,7 @@ const { data: productsData } = await useFetch<GetProductsResponse>(
         display: grid;
         width: 100%;
         gap: 24px 12px;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 </style>
 
