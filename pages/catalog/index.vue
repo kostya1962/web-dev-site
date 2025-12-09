@@ -2,16 +2,24 @@
 import type { GetCategoryResponse } from '~/interfaces/category.interface';
 import type { GetProductsResponse } from '~/interfaces/product.interface';
 
-const select = ref<string>("");
+
 
 const config = useRuntimeConfig();
 const API_URL = config.public.apiurl;
+const route = useRoute(); // даёт текущий роут
+const router = useRouter(); // управляет состоянием роутера (запроса)
+
+
+const select = ref(route.query.select?.toString() ?? "");
+watch(select, () => {
+    router.replace({ query: { select: select.value } })
+});
 
 const query = computed(() => (
     {
-        limit: 20,
-        offset: 0,
-        category_id: select.value || undefined,
+        limit: route.query.limit ?? 20,
+        offset: route.query.offset ?? 0,
+        category_id: route.query.select || undefined,
     }
 ));
 
@@ -34,6 +42,7 @@ const { data: productsData } = await useFetch<GetProductsResponse>(
     API_URL + '/products', 
     {
         query,
+        key: 'get-products',
     }
 ); 
 
