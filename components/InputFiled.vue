@@ -16,6 +16,7 @@ const data = defineModel<string>();
     background: none;
     border: none;
     color: var(--color-black);
+    width: 100%;
 }
 
 .input::placeholder{

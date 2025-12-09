@@ -11,15 +11,28 @@ const router = useRouter(); // управляет состоянием роут�
 
 
 const select = ref(route.query.select?.toString() ?? "");
-watch(select, () => {
-    router.replace({ query: { select: select.value } })
-});
+const search = ref(route.query.search?.toString() ?? "");
+
+watchEffect(() => 
+    {
+        router.replace(
+            { 
+                query: 
+                    { 
+                        select: select.value,
+                        search: search.value,
+                    } 
+            }
+        )
+    }
+);
 
 const query = computed(() => (
     {
         limit: route.query.limit ?? 20,
         offset: route.query.offset ?? 0,
         category_id: route.query.select || undefined,
+        search: route.query.search || undefined,
     }
 ));
 
@@ -53,6 +66,11 @@ const { data: productsData } = await useFetch<GetProductsResponse>(
         <h1 class="left">Каталог товаров</h1>
         <div class="catalog">
             <div class="catalog__filter">
+                <div class="catalog__search">
+                    <InputFiled v-model="search" variant="gray" placeholder="Поиск..." />
+                    <Icon name="icons:search" size="19" />
+                </div>
+                
                 <SelectFiled 
                     v-model="select"
                     :options="categories"
@@ -78,13 +96,26 @@ const { data: productsData } = await useFetch<GetProductsResponse>(
     .catalog__filter{
         width: 260px;
         margin-right: 45px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
     }
 
     .catalog__list{
         display: grid;
         width: 100%;
-        gap: 24px 12px;
+        gap: 64px 12px;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .catalog__search{
+        position: relative;
+    }
+
+    .catalog__search .iconify {
+        position: absolute;
+        top: 11px;
+        right: 9px;
     }
 </style>
 
