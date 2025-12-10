@@ -9,14 +9,23 @@ import type { Product } from '~/interfaces/product.interface';
         const value = Number(product.price || 0);
         return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(value);
     });
+
+    const isHovered = ref(false);
 </script>
 
 <template>
-    <NuxtLink class="card" :to="`/catalog/sup-${product.id}`">
+    <NuxtLink 
+        class="card" 
+        :to="`/catalog/sup-${product.id}`" 
+        @mouseenter="isHovered=true"
+        @mouseleave="isHovered=false"
+        >
         <div class="card__image">
             <span v-if="product.discount > 0" class="card__discount">
                 - {{ product.discount }}%
             </span>
+            <span v-else></span>
+            <AddFavorite :id="product.id" :is-shown="isHovered" />
         </div>
         <div class="card__info">
             <div class="card__name">
@@ -49,6 +58,9 @@ import type { Product } from '~/interfaces/product.interface';
         background-color: lightgray;
         padding: 16px;
         background-image: v-bind(image);
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
     }
 
     .card__discount{
