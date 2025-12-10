@@ -1,3 +1,5 @@
+import type { GetCategoryResponse } from "~/interfaces/category.interface";
+
 export const useFavoriteStore = defineStore("favorites", () => {
   const favoriteIDs = ref<number[]>([]);
 
@@ -11,5 +13,13 @@ export const useFavoriteStore = defineStore("favorites", () => {
     favoriteIDs.value = favoriteIDs.value.filter((favID) => favID !== id);
   }
 
-  return { favoriteIDs, addToFavorites, removeFromFavorites };
+  async function loadFavorites() {
+    const data = await $fetch<GetCategoryResponse>(
+      "http://localhost:3000/api/categories"
+    );
+
+    favoriteIDs.value = data.categories.map((c) => c.id);
+  }
+
+  return { favoriteIDs, addToFavorites, removeFromFavorites, loadFavorites };
 });

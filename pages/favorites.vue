@@ -3,7 +3,9 @@ import { useFavoriteStore } from '~/state/favorite.state';
 
     const favoriteSate = useFavoriteStore();
 
-    favoriteSate.addToFavorites(1);
+    await callOnce('loadFavorites', () => favoriteSate.loadFavorites(),{
+        mode: 'navigation',
+    });
 </script>
 
 
