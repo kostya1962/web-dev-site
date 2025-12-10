@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDebounceFn } from '@vueuse/core';
 import type { GetCategoryResponse } from '~/interfaces/category.interface';
 import type { GetProductsResponse } from '~/interfaces/product.interface';
 
@@ -13,9 +14,8 @@ const router = useRouter(); // управляет состоянием роут�
 const select = ref(route.query.select?.toString() ?? "");
 const search = ref(route.query.search?.toString() ?? "");
 
-watchEffect(() => 
-    {
-        router.replace(
+const changeRoute = useDebounceFn((select, search) => {
+    router.replace(
             { 
                 query: 
                     { 
@@ -24,8 +24,12 @@ watchEffect(() =>
                     } 
             }
         )
-    }
-);
+}, 100); // будет ждать 100 мс с последнего вызова 
+
+
+watch([select, search], () => {
+    changeRoute(select, search)
+});
 
 const query = computed(() => (
     {
