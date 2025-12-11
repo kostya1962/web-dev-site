@@ -35,7 +35,21 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title: "Shopper - магазин ювелирных украшений",
+      htmlAttrs: {
+        lang: "ru",
+      },
       link: [
+        {
+          rel: "icon",
+          type: "image/png",
+          href: "/favicon-32x32.png",
+        },
+        {
+          rel: "mainifest",
+          href: "/site.webmanifest",
+          crossorigin: "anonymous",
+        },
         {
           rel: "stylesheet",
           href: "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css",
