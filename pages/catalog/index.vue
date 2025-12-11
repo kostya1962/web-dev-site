@@ -5,8 +5,7 @@ import type { GetProductsResponse } from '~/interfaces/product.interface';
 
 
 
-const config = useRuntimeConfig();
-const API_URL = config.public.apiurl;
+const API_URL = useAPI();
 const route = useRoute(); // даёт текущий роут
 const router = useRouter(); // управляет состоянием роутера (запроса)
 

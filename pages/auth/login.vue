@@ -1,4 +1,21 @@
 <script setup lang="ts">
+import type { LoginResponse } from '~/interfaces/auth.interface';
+
+    const email = ref<string | undefined>();
+    const password = ref<string | undefined>();
+    const API_URL = useAPI(); 
+
+    async function login(){
+        const data = await $fetch<LoginResponse>(API_URL + '/auth/login', {
+            method: 'POST',
+            body: {
+                email: email.value,
+                password: password.value,
+            },
+        });
+
+        console.log(data);
+    }
 </script>
 
 <template>
@@ -6,11 +23,11 @@
         <h1>Войти в аккаунт</h1>
         <form action="" class="login-form">
             <div class="login-form__fileds">
-                <InputFiled variant="gray" placeholder="Email"/>
-                <InputFiled variant="gray" type="password" placeholder="Пароль" />
+                <InputFiled v-model="email" variant="gray" placeholder="Email"/>
+                <InputFiled v-model="password" variant="gray" type="password" placeholder="Пароль" />
             </div>
             <div class="login-form__actions">
-                <ActionButton>
+                <ActionButton @click.stop.prevent="login" >
                     Вход
                 </ActionButton>
                 <NuxtLink to="/auth/restore">Забыли пароль?</NuxtLink>

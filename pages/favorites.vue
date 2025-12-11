@@ -3,8 +3,7 @@ import type { Product } from '~/interfaces/product.interface';
 import { useFavoriteStore } from '~/state/favorite.state';
 
 const favoriteState = useFavoriteStore();
-const config = useRuntimeConfig();
-const API_URL = config.public.apiurl;
+const API_URL = useAPI();
 const products = ref<Product[]>([]);
 
 
