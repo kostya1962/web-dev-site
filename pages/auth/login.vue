@@ -16,7 +16,7 @@ import { useAuthStore } from '~/state/auth.state';
             },
         });
         authStore.setToken(data.token);
-        console.log(data);
+        navigateTo('/account');
     }
 </script>
 
