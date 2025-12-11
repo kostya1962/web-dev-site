@@ -1,7 +1,7 @@
 export default defineAppConfig({
-    apiPrefix: '/api',
-    
-    theme: {
-        mainColor: '#000000'
-    }
-})
+  apiPrefix: "/api",
+
+  theme: {
+    mainColor: "#000000",
+  },
+});
