@@ -3,12 +3,6 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
-  routeRules: {
-    "/about": { prerender: true },
-    "/": { swr: true },
-    "/catalog/**": { swr: 3600 },
-  },
-
   components: [
     {
       path: "~/components",
@@ -36,6 +30,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Shopper - магазин ювелирных украшений",
+      titleTemplate: "%s | Shopper",
       htmlAttrs: {
         lang: "ru",
       },

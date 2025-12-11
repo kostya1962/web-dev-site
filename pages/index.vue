@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 useSeoMeta({
-    title: 'Shopper - Главная страница',
+    title: 'Главная страница',
     description: 'Главная страница магазина Shopper с указанием последних поступлений и новостей',
     ogDescription: 'Главная страница магазина Shopper с указанием последних поступлений и новостей',
 });

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-    title: 'О нас - Shopper',
+    title: 'О нас',
     description: 'О компании интернет магазина Shopper',
     ogDescription: 'О компании интернет магазина Shopper',
 });
