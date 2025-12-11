@@ -3,7 +3,11 @@ import { useDebounceFn } from '@vueuse/core';
 import type { GetCategoryResponse } from '~/interfaces/category.interface';
 import type { GetProductsResponse } from '~/interfaces/product.interface';
 
-
+useSeoMeta({
+    title: 'Каталог товаров',
+    description: 'Каталог товаров интернет магазина Shopper с  ювелирными изделиями',
+    ogDescription: 'Каталог товаров интернет магазина Shopper с  ювелирными изделиями',
+});
 
 const API_URL = useAPI();
 const route = useRoute(); // даёт текущий роут

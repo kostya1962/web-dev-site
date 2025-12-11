@@ -2,6 +2,12 @@
 import type { Product } from '~/interfaces/product.interface';
 import { useFavoriteStore } from '~/state/favorite.state';
 
+useSeoMeta({
+    title: 'Избранное',
+    description: 'Избранные товары интернет магазина Shopper',
+    ogDescription: 'Избранные товары интернет магазина Shopper',
+});
+
 const favoriteState = useFavoriteStore();
 const API_URL = useAPI();
 const products = ref<Product[]>([]);
