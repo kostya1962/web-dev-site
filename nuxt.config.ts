@@ -83,4 +83,13 @@ export default defineNuxtConfig({
       changefreq: "daily",
     },
   },
+
+  nitro: {
+    storage: {
+      db: {
+        driver: "fs-lite",
+        base: "./db",
+      },
+    },
+  },
 });

@@ -13,7 +13,7 @@ export default defineSitemapEventHandler(async () => {
   const pages = products.products.map((p) => ({
     loc: `/catalog/${p.id}`,
     changefreq: "daily",
-    priority: 0.5,
+    priority: 0.7,
   })) satisfies SitemapUrlInput[];
   return pages;
 });
